@@ -14,6 +14,9 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
+import Tab4 from './pages/Tab4';
+import './app.css'
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,28 +40,36 @@ import './theme/variables.css';
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
+      <div className="tab-box">     
+         <IonTabs>
         <IonRouterOutlet>
           <Route path="/tab1" component={Tab1} exact={true} />
           <Route path="/tab2" component={Tab2} exact={true} />
           <Route path="/tab3" component={Tab3} />
+          <Route path="/tab4" component={Tab4} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
+        <IonTabBar className="toolbar" slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <img className="foter-img" src="assets/images/newentry.png" alt="#"/>
+            <IonLabel className="tab1">new entry</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <img className="foter-img" src="assets/images/dashboard.png" alt="#"/>
+            <IonLabel  className="tab2">dashboard</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <img className="foter-img" src="assets/images/resources.png" alt="#"/>
+            <IonLabel className="tab3">resourse</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab4" href="/tab4">
+          <img className="foter-img" src="assets/images/account.png" alt="#"/>
+            <IonLabel className="tab4">account</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
+      </div>
+
     </IonReactRouter>
   </IonApp>
 );
